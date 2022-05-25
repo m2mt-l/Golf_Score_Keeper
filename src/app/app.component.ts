@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'golf_score_keeper';
+  title = 'Golf Score Keeper';
 }
