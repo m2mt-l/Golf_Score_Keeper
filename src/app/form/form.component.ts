@@ -9,6 +9,8 @@ export class FormComponent implements OnInit {
 
   constructor() { }
 
+  selected = 'option2';
+
   ngOnInit(): void {
   }
 
