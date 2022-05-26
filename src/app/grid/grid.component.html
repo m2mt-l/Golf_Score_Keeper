@@ -1,1 +1,40 @@
-<p>grid works!</p>
+<div class="grid">
+  <table mat-table [dataSource]="scores" class="mat-elevation-z8">
+
+    <!-- Hole Number Column -->
+    <ng-container matColumnDef="holeNumber">
+      <th mat-header-cell *matHeaderCellDef> Hole Number </th>
+      <td mat-cell *matCellDef="let score">{{score.position}}</td>
+      <td mat-footer-cell *matFooterCellDef> Total </td>
+    </ng-container>
+
+    <!-- Par For Hall Column -->
+    <ng-container matColumnDef="parForHall">
+      <th mat-header-cell *matHeaderCellDef> Par For Hall </th>
+      <td mat-cell *matCellDef="let score">
+        <input matInput type="number">
+      </td>
+      <td mat-footer-cell *matFooterCellDef> </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let score">
+        <input matInput type="number">
+      </td>
+      <td mat-footer-cell *matFooterCellDef>  </td>
+
+    </ng-container>
+
+    <ng-container matColumnDef="disclaimer">
+      <td mat-footer-cell *matFooterCellDef colspan="2">
+        Please note that the cost of items displayed are completely and totally made up.
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+  </table>
+</div>
