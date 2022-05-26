@@ -11,9 +11,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
+import { GridComponent } from './grid/grid.component';
 
 @NgModule({
-    declarations: [AppComponent, FormComponent],
+    declarations: [AppComponent, FormComponent, GridComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
