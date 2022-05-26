@@ -14,14 +14,14 @@
     <div class="form">
         <mat-form-field appearance="fill">
             <mat-label>Name</mat-label>
-            <input matInput required>
+            <input matInput (keyup)="onKey($event)" required>
         </mat-form-field>
     </div>
 
     <div class="form">
         <mat-form-field appearance="fill">
             <mat-label>Number of Holes</mat-label>
-            <input matInput type="number" #input required>
+            <input matInput type="number" required>
         </mat-form-field>
     </div>
 

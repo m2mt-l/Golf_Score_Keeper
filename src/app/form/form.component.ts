@@ -9,9 +9,13 @@ export class FormComponent implements OnInit {
 
   constructor() { }
 
-  selected = 'option2';
-
   ngOnInit(): void {
   }
 
+  selected = 'option2';
+  name: string = '';
+
+  onKey(event: any) {
+    this.name = event.target.value;
+  }
 }
