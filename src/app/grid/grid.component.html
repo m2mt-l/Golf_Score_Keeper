@@ -20,7 +20,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let score">
+        <td mat-cell *matCellDef="let score" [style.background-color]="'#00ffff'">
             <input matInput type="number" min="1" #parForPlayer (keyup)="onKeyParForPlayer(score.position, parForPlayer.value)">
         </td>
         <td mat-footer-cell *matFooterCellDef>{{sumParForPlayer()}}</td>
