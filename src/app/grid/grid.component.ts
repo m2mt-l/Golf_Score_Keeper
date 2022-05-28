@@ -16,7 +16,11 @@ export class GridComponent implements OnInit {
     ngOnInit(): void {}
     displayedTotalColumns: string[] = ['underOverPar', 'totalPar', 'totalStroke'];
     displayedColumns: string[] = ['holeNumber', 'parForHall', 'name'];
-    totalParForPlayer: number = 0;
+    defaultParForHall: number = 0;
+    par: string = 'par';
+    bogey: string = 'bogey';
+    doubleBogey: string = 'doubleBogey';
+    nothing: string = 'nothing';
 
     scores: Score[] = [
         { position: 1, par: undefined, stroke: undefined },
@@ -53,7 +57,30 @@ export class GridComponent implements OnInit {
         return totalParForPlayer;
     }
 
+    checkScore(position: number): string {
+        const parForHall: number | undefined= this.scores[position - 1].par;
+        const parForPlayer: number | undefined = this.scores[position - 1].stroke;
+        if(parForHall === undefined || parForPlayer === undefined) return 'undefined';
+        const playerScore = parForPlayer - parForHall
+        if(playerScore === 0) return this.par;
+        else if(playerScore === 1) return this.bogey;
+        else if(playerScore >= 2) return this.doubleBogey;
+        else return this.nothing;
+    }
+
+    isPar(value: string): boolean {
+        return value === this.par; 
+    }
+
+    isBogey(value: string): boolean {
+        return value === this.bogey;
+    }
+
+    isDoubleBogey(value: string): boolean {
+        return value === this.doubleBogey;
+    }
+
     parResult(): number {
-        return this.sumParForHall() - this.sumParForPlayer();
+        return this.sumParForPlayer() - this.sumParForHall();
     }
 }
