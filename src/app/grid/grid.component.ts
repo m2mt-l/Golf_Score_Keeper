@@ -14,7 +14,7 @@ export class GridComponent implements OnInit {
     constructor() {}
 
     ngOnInit(): void {}
-    displayedTotalColumns: string[] = ['underOverPar', 'totalPar', 'totalStroke']
+    displayedTotalColumns: string[] = ['underOverPar', 'totalPar', 'totalStroke'];
     displayedColumns: string[] = ['holeNumber', 'parForHall', 'name'];
     totalParForPlayer: number = 0;
 
@@ -36,9 +36,9 @@ export class GridComponent implements OnInit {
     sumParForHall(): number {
         let totalParForHall: number = 0;
         for (let score of this.scores) {
-            if(score.par != undefined) {
-                totalParForHall += score.par
-            } 
+            if (score.par != undefined) {
+                totalParForHall += score.par;
+            }
         }
         return totalParForHall;
     }
@@ -46,9 +46,9 @@ export class GridComponent implements OnInit {
     sumParForPlayer(): number {
         let totalParForPlayer: number = 0;
         for (let score of this.scores) {
-            if(score.stroke != undefined) {
-                totalParForPlayer += score.stroke
-            } 
+            if (score.stroke != undefined) {
+                totalParForPlayer += score.stroke;
+            }
         }
         return totalParForPlayer;
     }
@@ -56,5 +56,4 @@ export class GridComponent implements OnInit {
     parResult(): number {
         return this.sumParForHall() - this.sumParForPlayer();
     }
-
 }
