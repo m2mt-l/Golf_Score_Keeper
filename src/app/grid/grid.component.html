@@ -52,4 +52,7 @@
 </table>
 </div>
 
-<h1 class="completeSentence" *ngIf="isAllScoreFilled()">You have completed this course</h1>
+<div class="complete" *ngIf="isAllScoreFilled()">
+    <h1 class="completeSentence">You have completed this course</h1>
+    <button mat-raised-button color="primary">Reset Scoring Grid</button>
+</div>
