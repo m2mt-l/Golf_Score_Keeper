@@ -106,4 +106,11 @@ export class GridComponent implements OnInit {
     clearScore(): void {
         this.scores = [];
     }
+
+    isAllScoreFilled(): boolean {
+        for (let score of this.scores) {
+            if (score.stroke === undefined || score.stroke === 0) return false;
+        }
+        return true;
+    }
 }
