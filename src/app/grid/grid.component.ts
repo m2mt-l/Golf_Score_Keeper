@@ -14,7 +14,6 @@ export class GridComponent implements OnInit {
     @Input() course: string = '';
     @Input() name: string = '';
     @Input() holes: number = 0;
-    @Input() form?: NgForm;
 
     ngOnInit(): void {
         this.generateScores(this.holes);
@@ -40,12 +39,12 @@ export class GridComponent implements OnInit {
 
     onKeyParForHall(position: number, value: string): void {
         this.scores[position - 1].par = Number(value);
-        console.table(this.scores);
+        // console.table(this.scores);
     }
 
     onKeyParForPlayer(position: number, value: string): void {
         this.scores[position - 1].stroke = Number(value);
-        console.table(this.scores);
+        // console.table(this.scores);
     }
 
     sumParForHall(): number {
@@ -104,7 +103,6 @@ export class GridComponent implements OnInit {
 
     clearForm(): void {
         this.formService.clearFormAll();
-        this.form?.resetForm({});
     }
 
     isAllScoreFilled(): boolean {
