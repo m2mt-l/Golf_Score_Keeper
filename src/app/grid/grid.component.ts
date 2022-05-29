@@ -14,9 +14,11 @@ interface Score {
 })
 export class GridComponent implements OnInit {
     constructor() {}
-    @Input() name = '';
+    @Input() name: string = '';
+    @Input() holes: number = 0;
 
-    ngOnInit(): void {}
+    ngOnInit(): void { }
+
     displayedTotalColumns: string[] = ['underOverPar', 'totalPar', 'totalStroke'];
     displayedColumns: string[] = ['holeNumber', 'parForHall', 'name'];
     defaultParForHall: number = 0;
@@ -42,6 +44,7 @@ export class GridComponent implements OnInit {
     onKeyParForHall(position: number, value: string): void {
         this.scores[position - 1].par = Number(value);
         console.table(this.scores);
+        console.log(this.holes);
     }
 
     onKeyParForPlayer(position: number, value: string): void {
