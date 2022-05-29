@@ -13,10 +13,13 @@ interface Score {
 })
 export class GridComponent implements OnInit {
     constructor() {}
+    @Input() course: string = '';
     @Input() name: string = '';
     @Input() holes: number = 0;
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.generateScores(this.holes);
+    }
 
     displayedTotalColumns: string[] = ['underOverPar', 'totalPar', 'totalStroke'];
     displayedColumns: string[] = ['holeNumber', 'parForHall', 'name'];
@@ -28,10 +31,7 @@ export class GridComponent implements OnInit {
     high: string = 'high';
     low: string = 'low';
 
-    scores: Score[] = [
-        { position: 1, par: undefined, stroke: undefined },
-        { position: 2, par: undefined, stroke: undefined },
-    ];
+    scores: Score[] = [];
 
     cellColor: { [key: string]: string } = {
         high: '#ff93ac', // red
@@ -42,7 +42,6 @@ export class GridComponent implements OnInit {
     onKeyParForHall(position: number, value: string): void {
         this.scores[position - 1].par = Number(value);
         console.table(this.scores);
-        console.log(this.holes);
     }
 
     onKeyParForPlayer(position: number, value: string): void {
@@ -91,5 +90,27 @@ export class GridComponent implements OnInit {
 
     parResult(): number {
         return this.sumParForPlayer() - this.sumParForHall();
+    }
+
+    generateScores(position: number): void {
+        for (let i: number = 1; i <= position; i++) {
+            const score: Score = {
+                position: i,
+                par: undefined,
+                stroke: undefined,
+            }
+            this.scores.push(score)
+        }
+    }
+
+    clearScore(): void {
+        this.scores = [];
+    }
+
+    isAllScoreFilled(): boolean {
+        for (let score of this.scores) {
+            if (score.stroke === undefined || score.stroke === 0) return false;
+        }
+        return true;
     }
 }

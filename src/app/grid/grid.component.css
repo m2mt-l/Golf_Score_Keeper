@@ -15,3 +15,15 @@ th.mat-column-position, td.mat-column-position {
     padding-right: 8px;
     padding-left: 8px;
 }
+
+.complete {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.completeSentence {
+    text-align: center;
+    margin-right: 2rem;
+
+}

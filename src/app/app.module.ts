@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
 import { GridComponent } from './grid/grid.component';
@@ -27,6 +28,7 @@ import { GridComponent } from './grid/grid.component';
         MatNativeDateModule,
         MatNativeDateModule,
         MatTableModule,
+        MatButtonModule,
         FormsModule,
         ReactiveFormsModule,
     ],
