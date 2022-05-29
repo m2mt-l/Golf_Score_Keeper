@@ -9,11 +9,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
+import { GridComponent } from './grid/grid.component';
 
 @NgModule({
-    declarations: [AppComponent, FormComponent],
+    declarations: [AppComponent, FormComponent, GridComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -24,6 +26,7 @@ import { FormComponent } from './form/form.component';
         MatDatepickerModule,
         MatNativeDateModule,
         MatNativeDateModule,
+        MatTableModule,
         FormsModule,
         ReactiveFormsModule,
     ],

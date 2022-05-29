@@ -1,0 +1,17 @@
+table {
+    width: 80%;
+}
+  
+tr.mat-footer-row {
+    font-weight: bold;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+}
+
+th.mat-column-position, td.mat-column-position {
+    padding-right: 8px;
+    padding-left: 8px;
+}
