@@ -33,4 +33,9 @@ export class FormComponent implements OnInit {
         return this.course != '' && this.name != '' && this.holes != 0;
     }
 
+    clearForm(): void {
+        this.course = '';
+        this.name = '';
+        this.holes = 0;
+    }
 }

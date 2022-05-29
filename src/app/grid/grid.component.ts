@@ -103,4 +103,7 @@ export class GridComponent implements OnInit {
         }
     }
 
+    clearScore(): void {
+        this.scores = [];
+    }
 }
