@@ -10,7 +10,7 @@ export class FormComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    @Output() addCourseName: EventEmitter<string> = new EventEmitter();
+    @Output() addCourseName: EventEmitter<string> = new EventEmitter<string>();
 
     selected = 'option2';
     name: string = '';
