@@ -32,7 +32,12 @@ export class FormComponent implements OnInit {
     }
 
     isFormFilled(): boolean {
-        return this.formService.course != '' && this.formService.name != '' && this.formService.holes != 0 && this.formService.date != '';
+        return (
+            this.formService.course != '' &&
+            this.formService.name != '' &&
+            this.formService.holes != 0 &&
+            this.formService.date != ''
+        );
     }
 
     addEvent(event: MatDatepickerInputEvent<Date>) {
@@ -50,5 +55,4 @@ export class FormComponent implements OnInit {
     getHoles(): number {
         return this.formService.holes;
     }
-
 }

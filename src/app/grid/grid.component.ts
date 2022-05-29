@@ -9,7 +9,6 @@ import { Score } from '../score';
     styleUrls: ['./grid.component.css'],
 })
 export class GridComponent implements OnInit {
-
     constructor(private formService: FormService) {}
 
     @Input() course: string = '';
@@ -98,8 +97,8 @@ export class GridComponent implements OnInit {
                 position: i,
                 par: undefined,
                 stroke: undefined,
-            }
-            this.scores.push(score)
+            };
+            this.scores.push(score);
         }
     }
 
