@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormService } from '../form.service';
-import { NgForm } from '@angular/forms';
 import { Score } from '../score';
 
 @Component({
