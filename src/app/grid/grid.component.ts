@@ -23,6 +23,8 @@ export class GridComponent implements OnInit {
     bogey: string = 'bogey';
     doubleBogey: string = 'doubleBogey';
     nothing: string = 'nothing';
+    high: string = 'high';
+    low: string = 'low';
 
     scores: Score[] = [
         { position: 1, par: undefined, stroke: undefined },
@@ -31,9 +33,9 @@ export class GridComponent implements OnInit {
 
 
     cellColor: {[key:string]: string} = {
-        red: "ff0000",
-        green: "00ff00",
-        blue: "0000ff"
+        high: '#ff93ac', // red
+        low: '#40E0D0', // Turquoise
+        nothing: '#ffffff'
     }
     
     onKeyParForHall(position: number, value: string): void {
@@ -69,27 +71,24 @@ export class GridComponent implements OnInit {
     checkScore(position: number): string {
         const parForHall: number | undefined= this.scores[position - 1].par;
         const parForPlayer: number | undefined = this.scores[position - 1].stroke;
+
         if(parForHall === undefined || parForPlayer === undefined) return 'undefined';
-        const playerScore = parForPlayer - parForHall
-        if(playerScore === 0) return this.par;
-        else if(playerScore === 1) return this.bogey;
-        else if(playerScore >= 2) return this.doubleBogey;
-        else return this.nothing;
+
+        const playerScore = parForPlayer - parForHall;
+        if(parForPlayer === 0) return this.cellColor[this.nothing];
+        else if(playerScore < 0) return this.cellColor[this.low];
+        else if(playerScore > 0) return this.cellColor[this.high];
+        else return this.cellColor[this.nothing];
     }
 
-    isPar(value: string): boolean {
-        return value === this.par; 
-    }
-
-    isBogey(value: string): boolean {
-        return value === this.bogey;
-    }
-
-    isDoubleBogey(value: string): boolean {
-        return value === this.doubleBogey;
+    checkResult(difference: number): string {
+        if(difference < 0) return this.cellColor[this.low];
+        else if(difference > 0) return this.cellColor[this.high];
+        else return this.cellColor[this.nothing];
     }
 
     parResult(): number {
         return this.sumParForPlayer() - this.sumParForHall();
     }
+
 }
