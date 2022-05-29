@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'app-form',
@@ -10,10 +10,21 @@ export class FormComponent implements OnInit {
 
     ngOnInit(): void {}
 
+    @Output() addCourseName: EventEmitter<string> = new EventEmitter();
+
     selected = 'option2';
     name: string = '';
+    holes: number = 0;
 
-    onKey(event: any) {
-        this.name = event.target.value;
+    onKeyCourse(value: string) {
+        this.addCourseName.emit(value);
+    }
+
+    onKeyName(value: string) {
+        this.name = value;
+    }
+
+    onKeyHole(value: string) {
+        this.holes = Number(value);
     }
 }

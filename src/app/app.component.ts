@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     title = 'Golf Score Keeper';
+    course = '';
+
+    addCourseName(value: string): void {
+        this.course = value;
+    }
+
+    displayTitle(): string {
+        return this.course === '' ? this.title : this.title + ' for ' + this.course;
+    }
 }
