@@ -1,11 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormService } from '../form.service';
 import { NgForm } from '@angular/forms';
-interface Score {
-    position: number;
-    par?: number;
-    stroke?: number;
-}
+import { Score } from '../score';
 
 @Component({
     selector: 'app-grid',
@@ -13,7 +9,6 @@ interface Score {
     styleUrls: ['./grid.component.css'],
 })
 export class GridComponent implements OnInit {
-
     constructor(private formService: FormService) {}
 
     @Input() course: string = '';
@@ -102,8 +97,8 @@ export class GridComponent implements OnInit {
                 position: i,
                 par: undefined,
                 stroke: undefined,
-            }
-            this.scores.push(score)
+            };
+            this.scores.push(score);
         }
     }
 

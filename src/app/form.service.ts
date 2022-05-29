@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class FormService {
+    constructor() {}
 
-    constructor() { }
-
-    course: string = ''
+    course: string = '';
     name: string = '';
     holes: number = 0;
-    date: string = ''
+    date: string = '';
 
     setCourse(value: string): void {
         this.course = value;
@@ -25,7 +24,7 @@ export class FormService {
     }
 
     setDate(value: string): void {
-        this.date = value
+        this.date = value;
     }
 
     clearFormAll(): void {
