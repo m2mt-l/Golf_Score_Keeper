@@ -19,7 +19,7 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <th mat-header-cell *matHeaderCellDef>{{name}}</th>
         <td mat-cell *matCellDef="let score" [style.background-color]='checkScore(score.position)'>
             <input matInput type="number" min="1" #parForPlayer (keyup)="onKeyParForPlayer(score.position, parForPlayer.value)">
         </td>

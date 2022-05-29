@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 interface Score {
     position: number;
@@ -14,6 +14,7 @@ interface Score {
 })
 export class GridComponent implements OnInit {
     constructor() {}
+    @Input() name = '';
 
     ngOnInit(): void {}
     displayedTotalColumns: string[] = ['underOverPar', 'totalPar', 'totalStroke'];
