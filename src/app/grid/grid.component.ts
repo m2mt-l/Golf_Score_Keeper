@@ -1,11 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormService } from '../form.service';
 import { NgForm } from '@angular/forms';
-interface Score {
-    position: number;
-    par?: number;
-    stroke?: number;
-}
+import { Score } from '../score';
 
 @Component({
     selector: 'app-grid',
