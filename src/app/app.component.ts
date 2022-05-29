@@ -16,5 +16,4 @@ export class AppComponent {
     displayTitle(): string {
         return this.course === '' ? this.title : this.title + ' for ' + this.course;
     }
-
 }

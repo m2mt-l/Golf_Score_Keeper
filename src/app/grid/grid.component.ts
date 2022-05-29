@@ -6,7 +6,6 @@ interface Score {
     stroke?: number;
 }
 
-
 @Component({
     selector: 'app-grid',
     templateUrl: './grid.component.html',
@@ -17,7 +16,7 @@ export class GridComponent implements OnInit {
     @Input() name: string = '';
     @Input() holes: number = 0;
 
-    ngOnInit(): void { }
+    ngOnInit(): void {}
 
     displayedTotalColumns: string[] = ['underOverPar', 'totalPar', 'totalStroke'];
     displayedColumns: string[] = ['holeNumber', 'parForHall', 'name'];
@@ -34,13 +33,12 @@ export class GridComponent implements OnInit {
         { position: 2, par: undefined, stroke: undefined },
     ];
 
-
-    cellColor: {[key:string]: string} = {
+    cellColor: { [key: string]: string } = {
         high: '#ff93ac', // red
         low: '#40E0D0', // Turquoise
-        nothing: '#ffffff'
-    }
-    
+        nothing: '#ffffff',
+    };
+
     onKeyParForHall(position: number, value: string): void {
         this.scores[position - 1].par = Number(value);
         console.table(this.scores);
@@ -73,26 +71,25 @@ export class GridComponent implements OnInit {
     }
 
     checkScore(position: number): string {
-        const parForHall: number | undefined= this.scores[position - 1].par;
+        const parForHall: number | undefined = this.scores[position - 1].par;
         const parForPlayer: number | undefined = this.scores[position - 1].stroke;
 
-        if(parForHall === undefined || parForPlayer === undefined) return 'undefined';
+        if (parForHall === undefined || parForPlayer === undefined) return 'undefined';
 
         const playerScore = parForPlayer - parForHall;
-        if(parForPlayer === 0) return this.cellColor[this.nothing];
-        else if(playerScore < 0) return this.cellColor[this.low];
-        else if(playerScore > 0) return this.cellColor[this.high];
+        if (parForPlayer === 0) return this.cellColor[this.nothing];
+        else if (playerScore < 0) return this.cellColor[this.low];
+        else if (playerScore > 0) return this.cellColor[this.high];
         else return this.cellColor[this.nothing];
     }
 
     checkResult(difference: number): string {
-        if(difference < 0) return this.cellColor[this.low];
-        else if(difference > 0) return this.cellColor[this.high];
+        if (difference < 0) return this.cellColor[this.low];
+        else if (difference > 0) return this.cellColor[this.high];
         else return this.cellColor[this.nothing];
     }
 
     parResult(): number {
         return this.sumParForPlayer() - this.sumParForHall();
     }
-
 }
