@@ -12,8 +12,13 @@ export class FormComponent implements OnInit {
 
     selected = 'option2';
     name: string = '';
+    holes: number = 0;
 
-    onKey(value: string) {
+    onKeyName(value: string) {
         this.name = value;
+    }
+
+    onKeyHole(value: string) {
+        this.holes = Number(value);
     }
 }
