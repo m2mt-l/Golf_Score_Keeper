@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 @Component({
     selector: 'app-form',
     templateUrl: './form.component.html',
@@ -15,6 +15,7 @@ export class FormComponent implements OnInit {
     course: string = ''
     name: string = '';
     holes: number = 0;
+    date: string = ''
 
     onKeyCourse(value: string) {
         this.course = value;
@@ -29,8 +30,17 @@ export class FormComponent implements OnInit {
         this.holes = Number(value);
     }
 
+    onKeyDate(value: string) {
+        this.date = value;
+        console.log(value);
+    }
+
     isFormFilled(): boolean {
-        return this.course != '' && this.name != '' && this.holes != 0;
+        return this.course != '' && this.name != '' && this.holes != 0 && this.date != '';
+    }
+
+    addEvent(event: MatDatepickerInputEvent<Date>) {
+        this.date = String(event.value);
     }
 
     clearForm(): void {
