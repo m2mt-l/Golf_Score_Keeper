@@ -12,11 +12,12 @@ export class FormComponent implements OnInit {
 
     @Output() addCourseName: EventEmitter<string> = new EventEmitter<string>();
 
-    selected = 'option2';
+    course: string = ''
     name: string = '';
     holes: number = 0;
 
     onKeyCourse(value: string) {
+        this.course = value;
         this.addCourseName.emit(value);
     }
 
@@ -27,4 +28,9 @@ export class FormComponent implements OnInit {
     onKeyHole(value: string) {
         this.holes = Number(value);
     }
+
+    isFormFilled(): boolean {
+        return this.course != '' && this.name != '' && this.holes != 0;
+    }
+
 }

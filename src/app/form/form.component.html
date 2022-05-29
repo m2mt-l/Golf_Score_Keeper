@@ -36,4 +36,4 @@
         </mat-form-field>
     </div>
 </div>
-<app-grid [name]="name" [holes]="holes"></app-grid>
+<app-grid *ngIf="isFormFilled()" [course]="course" [name]="name" [holes]="holes"></app-grid>
