@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { FormService } from '../form.service';
 @Component({
@@ -24,6 +25,10 @@ export class FormComponent implements OnInit {
 
     onKeyHole(value: string) {
         this.formService.setHole(value);
+    }
+
+    onSubmit(form: NgForm) {
+        form.resetForm();
     }
 
     isFormFilled(): boolean {
