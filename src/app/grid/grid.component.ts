@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormService } from '../form.service';
 
 interface Score {
     position: number;
@@ -12,7 +13,9 @@ interface Score {
     styleUrls: ['./grid.component.css'],
 })
 export class GridComponent implements OnInit {
-    constructor() {}
+
+    constructor(private formService: FormService) {}
+
     @Input() course: string = '';
     @Input() name: string = '';
     @Input() holes: number = 0;
@@ -103,8 +106,8 @@ export class GridComponent implements OnInit {
         }
     }
 
-    clearScore(): void {
-        this.scores = [];
+    clearForm(): void {
+        this.formService.clearFormAll();
     }
 
     isAllScoreFilled(): boolean {
