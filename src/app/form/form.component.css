@@ -11,8 +11,37 @@
     margin-bottom: 2rem;
 }
 
+.grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.complete {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.completeSentence {
+    text-align: center;
+    margin-right: 2rem;
+
+}
+
 @media screen and (max-width: 480px) {
     .form {
         width: 40%;
+    }
+    .completeSentence {
+        font-size: 20px;
+        text-align: center;
+        margin-right: 1rem;
+    }
+
+    .complete {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
     }
 }

@@ -60,9 +60,14 @@ export class ScoreService {
     }
 
     isAllScoreFilled(): boolean {
+        if (this.scores.length === 0) return false;
         for (let score of this.scores) {
             if (score.stroke === undefined || score.stroke === 0) return false;
         }
         return true;
+    }
+
+    clearScores(): void {
+        this.scores = [];
     }
 }

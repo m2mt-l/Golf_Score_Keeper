@@ -59,6 +59,7 @@ export class FormComponent implements OnInit {
 
     clearForm(): void {
         this.formService.clearFormAll();
+        this.scoreService.clearScores();
     }
 
     getIsAllScoreFilled(): boolean {

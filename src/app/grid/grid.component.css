@@ -16,34 +16,10 @@ th.mat-column-position, td.mat-column-position {
     padding-left: 8px;
 }
 
-.complete {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.completeSentence {
-    text-align: center;
-    margin-right: 2rem;
-
-}
 
 
 @media screen and (max-width: 480px) {
     table {
         width: 370px;
-    }
-    .completeSentence {
-        font-size: 20px;
-        text-align: center;
-        margin-right: 1rem;
-    }
-
-
-    .complete {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 2rem;
     }
 }
