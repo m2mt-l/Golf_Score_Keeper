@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Score } from './score';
 @Injectable({
-	providedIn: 'root'
+    providedIn: 'root',
 })
 export class ScoreService {
+    constructor() {}
 
-	constructor() { }
+    scores: Score[] = [];
 
-	scores: Score[] = [];
-
-	generateScores(position: number): void {
+    generateScores(position: number): void {
         for (let i: number = 1; i <= position; i++) {
             const score: Score = {
                 position: i,
@@ -29,7 +28,6 @@ export class ScoreService {
         this.scores[position - 1].stroke = Number(value);
         // console.table(this.scores);
     }
-
 
     sumParForHall(): number {
         let totalParForHall: number = 0;

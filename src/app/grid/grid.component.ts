@@ -78,7 +78,7 @@ export class GridComponent implements OnInit {
         return this.scoreService.scores;
     }
 
-/*     clearForm(): void {
+    /*     clearForm(): void {
         this.formService.clearFormAll();
     }
 
