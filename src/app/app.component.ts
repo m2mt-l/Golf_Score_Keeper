@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'golf_score_keeper';
+    title = 'Golf Score Keeper';
+    course = '';
+
+    addCourseName(value: string): void {
+        this.course = value;
+    }
+
+    displayTitle(): string {
+        return this.course === '' ? this.title : this.title + ' for ' + this.course;
+    }
 }

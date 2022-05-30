@@ -1,0 +1,66 @@
+.forms {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.form {
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.complete {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.completeSentence {
+    text-align: center;
+    margin-right: 2rem;
+
+}
+
+.clear {
+    width: 100px;
+    height: 50px;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        width: 40%;
+    }
+    .completeSentence {
+        font-size: 20px;
+        text-align: center;
+        margin-right: 1rem;
+    }
+
+    .complete {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    .form {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .clear {
+        width: 100px;
+        height: 50px;
+    }
+}

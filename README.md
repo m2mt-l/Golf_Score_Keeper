@@ -1,6 +1,11 @@
-# GolfScoreKeeper
+# Golf Score Keeper
+This project is for Recursion Angular project and was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
+## URL
+https://m2mt-l.github.io/Golf_Score_Keeper/
+
+## Description
+Input course name, your name, the number of holes and date. The grid will show up and input the number of par.
 
 ## Development server
 
