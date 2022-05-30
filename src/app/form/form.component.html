@@ -23,4 +23,9 @@
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 <app-grid *ngIf="isFormFilled()" [course]="getCourse()" [name]="getName()" [holes]="getHoles()"></app-grid>
+
+<div class="complete" *ngIf="getIsAllScoreFilled()">
+    <h1 class="completeSentence">You have completed this course</h1>
+    <button mat-raised-button color="primary" type="reset" (click)="clearForm(); createNgForm.resetForm()">Reset Scoring Grid</button>
+</div>
 </form>
