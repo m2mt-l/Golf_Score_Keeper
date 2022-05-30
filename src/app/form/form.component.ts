@@ -2,13 +2,14 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { FormService } from '../form.service';
+import { ScoreService } from '../score.service';
 @Component({
     selector: 'app-form',
     templateUrl: './form.component.html',
     styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
-    constructor(private formService: FormService) {}
+    constructor(private formService: FormService, private scoreService: ScoreService) {}
 
     ngOnInit(): void {}
 
@@ -54,5 +55,14 @@ export class FormComponent implements OnInit {
 
     getHoles(): number {
         return this.formService.holes;
+    }
+
+    clearForm(): void {
+        this.formService.clearFormAll();
+        this.scoreService.clearScores();
+    }
+
+    getIsAllScoreFilled(): boolean {
+        return this.scoreService.isAllScoreFilled();
     }
 }

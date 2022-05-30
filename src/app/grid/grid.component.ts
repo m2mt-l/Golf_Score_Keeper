@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormService } from '../form.service';
+import { ScoreService } from '../score.service';
 import { Score } from '../score';
 
 @Component({
@@ -8,27 +9,24 @@ import { Score } from '../score';
     styleUrls: ['./grid.component.css'],
 })
 export class GridComponent implements OnInit {
-    constructor(private formService: FormService) {}
+    constructor(private formService: FormService, private scoreService: ScoreService) {}
 
     @Input() course: string = '';
     @Input() name: string = '';
     @Input() holes: number = 0;
 
     ngOnInit(): void {
-        this.generateScores(this.holes);
+        this.scoreService.generateScores(this.holes);
     }
 
     displayedTotalColumns: string[] = ['underOverPar', 'totalPar', 'totalStroke'];
     displayedColumns: string[] = ['holeNumber', 'parForHall', 'name'];
     defaultParForHall: number = 0;
-    par: string = 'par';
-    bogey: string = 'bogey';
-    doubleBogey: string = 'doubleBogey';
+
     nothing: string = 'nothing';
     high: string = 'high';
     low: string = 'low';
 
-    scores: Score[] = [];
 
     cellColor: { [key: string]: string } = {
         high: '#ff93ac', // red
@@ -37,38 +35,24 @@ export class GridComponent implements OnInit {
     };
 
     onKeyParForHall(position: number, value: string): void {
-        this.scores[position - 1].par = Number(value);
-        // console.table(this.scores);
+        this.scoreService.setParForHall(position, value);
     }
 
     onKeyParForPlayer(position: number, value: string): void {
-        this.scores[position - 1].stroke = Number(value);
-        // console.table(this.scores);
+        this.scoreService.setParForPlayer(position, value);
     }
 
-    sumParForHall(): number {
-        let totalParForHall: number = 0;
-        for (let score of this.scores) {
-            if (score.par != undefined) {
-                totalParForHall += score.par;
-            }
-        }
-        return totalParForHall;
+    getSumParForHall(): number {
+        return this.scoreService.sumParForHall();
     }
 
-    sumParForPlayer(): number {
-        let totalParForPlayer: number = 0;
-        for (let score of this.scores) {
-            if (score.stroke != undefined) {
-                totalParForPlayer += score.stroke;
-            }
-        }
-        return totalParForPlayer;
+    getSumParForPlayer(): number {
+        return this.scoreService.sumParForPlayer();
     }
 
     checkScore(position: number): string {
-        const parForHall: number | undefined = this.scores[position - 1].par;
-        const parForPlayer: number | undefined = this.scores[position - 1].stroke;
+        const parForHall: number | undefined = this.scoreService.getPar(position);
+        const parForPlayer: number | undefined = this.scoreService.getStroke(position);
 
         if (parForHall === undefined || parForPlayer === undefined) return 'undefined';
 
@@ -86,28 +70,10 @@ export class GridComponent implements OnInit {
     }
 
     parResult(): number {
-        return this.sumParForPlayer() - this.sumParForHall();
+        return this.getSumParForPlayer() - this.getSumParForHall();
     }
 
-    generateScores(position: number): void {
-        for (let i: number = 1; i <= position; i++) {
-            const score: Score = {
-                position: i,
-                par: undefined,
-                stroke: undefined,
-            };
-            this.scores.push(score);
-        }
-    }
-
-    clearForm(): void {
-        this.formService.clearFormAll();
-    }
-
-    isAllScoreFilled(): boolean {
-        for (let score of this.scores) {
-            if (score.stroke === undefined || score.stroke === 0) return false;
-        }
-        return true;
+    getScores(): Score[] {
+        return this.scoreService.scores;
     }
 }

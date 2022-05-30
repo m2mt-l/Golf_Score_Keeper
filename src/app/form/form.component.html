@@ -22,5 +22,14 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-<app-grid *ngIf="isFormFilled()" [course]="getCourse()" [name]="getName()" [holes]="getHoles()"></app-grid>
+    <button class="clear" mat-raised-button color="primary" type="reset" (click)="createNgForm.resetForm()">Clear</button>
+
+    <div class="grid">
+        <app-grid *ngIf="isFormFilled()" [course]="getCourse()" [name]="getName()" [holes]="getHoles()"></app-grid>
+
+        <div class="complete" *ngIf="getIsAllScoreFilled()">
+            <h1 class="completeSentence">You have completed this course</h1>
+            <button mat-raised-button color="primary" (click)="clearForm()">Reset Scoring Grid</button>
+        </div>
+    </div>
 </form>
