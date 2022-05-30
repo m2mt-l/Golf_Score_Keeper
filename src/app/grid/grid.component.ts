@@ -27,7 +27,6 @@ export class GridComponent implements OnInit {
     high: string = 'high';
     low: string = 'low';
 
-    // scores: Score[] = [];
 
     cellColor: { [key: string]: string } = {
         high: '#ff93ac', // red
@@ -77,12 +76,4 @@ export class GridComponent implements OnInit {
     getScores(): Score[] {
         return this.scoreService.scores;
     }
-
-    /*     clearForm(): void {
-        this.formService.clearFormAll();
-    }
-
-    getIsAllScoreFilled(): boolean {
-        return this.scoreService.isAllScoreFilled();
-    } */
 }
