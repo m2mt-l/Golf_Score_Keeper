@@ -7,6 +7,9 @@ https://m2mt-l.github.io/Golf_Score_Keeper/
 ## Description
 Input course name, your name, the number of holes and date. The grid will show up and input the number of par.
 
+## Image
+<img width="1215" alt="Screen Shot 2022-05-30 at 21 03 46" src="https://user-images.githubusercontent.com/6548931/170998305-9825e30e-e900-4247-a8b7-e909ae832939.png">
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
